@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimoni Produk - Samu Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #111827;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2em;
+    }
+
+    .samu {
+      color: #ff4d4d;
+      text-shadow: 0 0 10px #ff4d4d;
+    }
+
+    .developer {
+      color: #ffffff;
+      text-shadow: 0 0 12px #ffffff;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #1f2937;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      border-bottom: 1px solid #333;
+    }
+
+    .card .content {
+      padding: 20px;
+    }
+
+    .caption {
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #10b981;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      line-height: 1.6;
+      font-size: 0.95em;
+    }
+
+    .testimoni-text {
+      margin-top: 12px;
+      font-style: italic;
+      font-size: 0.93em;
+      color: #cbd5e1;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.1em;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Zoom overlay */
+    .zoom-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .zoom-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .zoom-box {
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+
+    .zoom-overlay.active .zoom-box {
+      transform: scale(1);
+    }
+
+    .zoom-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .zoom-box {
+        max-width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Judul -->
+  <h1>
+    <span class="samu">Samu</span> <span class="developer">Developer</span>
+  </h1>
+
+  <!-- Testimoni -->
+  <div class="container">
+    <!-- Testimoni 1 -->
+    <div class="card">
+      <img src="https://i.postimg.cc/kg2Krjq6/IMG-20250712-WA0055.jpg" alt="Foto Testimoni 1" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#1 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Sc SamsInfinity Gen1 <br>
+          💳 Harga: 4.100 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Barangnya mantap, work 100%! Trusted seller!"
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimoni 2 -->
+    <div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621685496_skyzopedia.jpg?text=Testimoni+2" alt="Foto Testimoni 2" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#2 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Patner Sc SamsInfinity <br>
+          💳 Harga: 15.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Langsung dipakai dan konek. Samu top banget 🔥"
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimoni 3 -->
+    <div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621685699_skyzopedia.jpg?text=Testimoni+3" alt="Foto Testimoni 3" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#3 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Reseller Sc SamsInfinity <br>
+          💳 Harga: 5.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Koneksi stabil dan cepet. Makasih Samu!"
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimoni 4 -->
+    <div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621685957_skyzopedia.jpg?text=Testimoni+4" alt="Foto Testimoni 4" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#4 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Sc Bug Syren Invictus v4 <br>
+          💳 Harga: 5.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Sesuai deskripsi, langsung bisa dipakai tanpa ribet."
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimoni 5 -->
+    <div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621686250_skyzopedia.jpg?text=Testimoni+5" alt="Foto Testimoni 5" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#5 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Pt Up Ke Tangan Kanan Panel <br>
+          💳 Harga: 5.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Top banget! Beli jam 10 langsung dikirim dan aktif."
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621688176_skyzopedia.jpg?text=Testimoni+5" alt="Foto Testimoni 5" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#6 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Pt Up Ke Tangan Kanan Panel <br>
+          💳 Harga: 5.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Top banget! Beli jam 10 langsung dikirim dan aktif."
+        </div>
+      </div>
+    </div>
+  
+
+
+<div class="card">
+      <img src="https://img1.pixhost.to/images/7183/621688176_skyzopedia.jpg?text=Testimoni+7" alt="Foto Testimoni 5" onclick="zoomImage(this)">
+      <div class="content">
+        <div class="caption">#7 ✅ Done By Samu</div>
+        <div class="info">
+          📦 Barang: Admin Panel <br>
+          💳 Harga: 5.000 <br>
+          📱 Via: Dana
+        </div>
+        <div class="testimoni-text">
+          "Top banget! Beli jam 10 langsung dikirim dan aktif."
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Zoom Overlay -->
+  <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()">
+    <div class="zoom-box">
+      <img id="zoomedImg" src="" alt="Zoomed Image">
+    </div>
+  </div>
+
+  <!-- Kontak -->
+  <div class="contact">
+    <p>Minat buy? Hubungi kontak di bawah 👇</p>
+    <p>🪀: <a href="https://wa.me/6281387476284" target="_blank">SamuDev (WhatsApp)</a></p>
+    <p>✉️: <a href="https://t.me/SamuDev" target="_blank">@SamuDev (Telegram)</a></p>
+  </div>
+
+  <!-- JS Zoom Logic -->
+  <script>
+    const zoomOverlay = document.getElementById('zoomOverlay');
+    const zoomedImg = document.getElementById('zoomedImg');
+
+    function zoomImage(img) {
+      zoomedImg.src = img.src;
+      zoomOverlay.classList.add('active');
+    }
+
+    function closeZoom() {
+      zoomOverlay.classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
