@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Testimoni Produk - Samu Developer</title>
-  <link rel="icon" type="image/png" href="https://img1.pixhost.to/images/7185/621706790_skyzopedia.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -144,6 +143,52 @@
       display: block;
       border-radius: 12px;
     }
+/* Tombol Musik */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+#musicBtn:hover {
+  background-color: #0196a6;
+  transform: scale(1.1);
+}
+
+/* Notifikasi */
+.notif {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 188, 212, 0.95);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 1000;
+}
+
+.notif.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     @media (max-width: 500px) {
       .zoom-box {
@@ -159,6 +204,17 @@
     <span class="samu">Samu</span> <span class="developer">Developer</span>
   </h1>
 
+<!-- Notifikasi -->
+<div id="notif" class="notif">Klik tombol musik di kanan bawah untuk menghidupkan musik 🎵</div>
+
+<!-- Tombol Musik -->
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+<!-- Audio -->
+<audio id="bgMusic" loop>
+  <source src="https://files.catbox.moe/48dbds.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
   <!-- Testimoni -->
   <div class="container">
     <!-- Testimoni 1 -->
@@ -289,20 +345,47 @@
     <p>✉️: <a href="https://t.me/SamuDev" target="_blank">@SamuDev (Telegram)</a></p>
   </div>
 
-  <!-- JS Zoom Logic -->
-  <script>
-    const zoomOverlay = document.getElementById('zoomOverlay');
-    const zoomedImg = document.getElementById('zoomedImg');
+ <script>
+  const zoomOverlay = document.getElementById('zoomOverlay');
+  const zoomedImg = document.getElementById('zoomedImg');
+  const notif = document.getElementById('notif');
+  const music = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
 
-    function zoomImage(img) {
-      zoomedImg.src = img.src;
-      zoomOverlay.classList.add('active');
+  // Tampilkan notifikasi awal saat web dibuka
+  window.addEventListener('load', () => {
+    notif.textContent = "Klik tombol musik di kanan bawah untuk menghidupkan musik 🎵";
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 4000);
+  });
+
+  // Fungsi zoom gambar
+  function zoomImage(img) {
+    zoomedImg.src = img.src;
+    zoomOverlay.classList.add('active');
+  }
+
+  function closeZoom() {
+    zoomOverlay.classList.remove('active');
+  }
+
+  // Fungsi tombol musik
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      showNotif("Besarkan volume untuk pengalaman terbaik 🎧");
+    } else {
+      music.pause();
+      showNotif("Musik dijeda 🔇");
     }
+  }
 
-    function closeZoom() {
-      zoomOverlay.classList.remove('active');
-    }
-  </script>
-
+  // Fungsi notifikasi dinamis
+  function showNotif(text) {
+    notif.textContent = text;
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 4000);
+  }
+</script>
 </body>
 </html>
